@@ -5,29 +5,27 @@ package ping;
 option go_package = "github.com/iamEzaz/demo";
 
 message Req{
-    // string msg = 1;
     int32 id = 1;
     string name = 2;
 }
 
-message todoadd{
+message TodoAdd{
     int32 id = 1;
     string name = 2;
 }
 
-message tododelete{
+message TodoDelete{
     int32 id = 1;
     string name = 2;
 }
 
 message Res{
-    // string msg = 2;
     int32 id = 1;
     string name = 2;
 }
 
 service Ping{
     rpc Echo(Req) returns (Res) {}
-    rpc Add(todoadd) returns (Res){}
-    rpc Delete(tododelete) returns (Res){}
+    rpc Add(TodoAdd) returns (Res){}
+    rpc Delete(TodoDelete) returns (Res){}
 }

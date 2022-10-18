@@ -19,8 +19,8 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PingClient interface {
 	Echo(ctx context.Context, in *Req, opts ...grpc.CallOption) (*Res, error)
-	Add(ctx context.Context, in *Todoadd, opts ...grpc.CallOption) (*Res, error)
-	Delete(ctx context.Context, in *Tododelete, opts ...grpc.CallOption) (*Res, error)
+	Add(ctx context.Context, in *TodoAdd, opts ...grpc.CallOption) (*Res, error)
+	Delete(ctx context.Context, in *TodoDelete, opts ...grpc.CallOption) (*Res, error)
 }
 
 type pingClient struct {
@@ -40,7 +40,7 @@ func (c *pingClient) Echo(ctx context.Context, in *Req, opts ...grpc.CallOption)
 	return out, nil
 }
 
-func (c *pingClient) Add(ctx context.Context, in *Todoadd, opts ...grpc.CallOption) (*Res, error) {
+func (c *pingClient) Add(ctx context.Context, in *TodoAdd, opts ...grpc.CallOption) (*Res, error) {
 	out := new(Res)
 	err := c.cc.Invoke(ctx, "/ping.Ping/Add", in, out, opts...)
 	if err != nil {
@@ -49,7 +49,7 @@ func (c *pingClient) Add(ctx context.Context, in *Todoadd, opts ...grpc.CallOpti
 	return out, nil
 }
 
-func (c *pingClient) Delete(ctx context.Context, in *Tododelete, opts ...grpc.CallOption) (*Res, error) {
+func (c *pingClient) Delete(ctx context.Context, in *TodoDelete, opts ...grpc.CallOption) (*Res, error) {
 	out := new(Res)
 	err := c.cc.Invoke(ctx, "/ping.Ping/Delete", in, out, opts...)
 	if err != nil {
@@ -63,8 +63,8 @@ func (c *pingClient) Delete(ctx context.Context, in *Tododelete, opts ...grpc.Ca
 // for forward compatibility
 type PingServer interface {
 	Echo(context.Context, *Req) (*Res, error)
-	Add(context.Context, *Todoadd) (*Res, error)
-	Delete(context.Context, *Tododelete) (*Res, error)
+	Add(context.Context, *TodoAdd) (*Res, error)
+	Delete(context.Context, *TodoDelete) (*Res, error)
 	mustEmbedUnimplementedPingServer()
 }
 
@@ -75,10 +75,10 @@ type UnimplementedPingServer struct {
 func (UnimplementedPingServer) Echo(context.Context, *Req) (*Res, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Echo not implemented")
 }
-func (UnimplementedPingServer) Add(context.Context, *Todoadd) (*Res, error) {
+func (UnimplementedPingServer) Add(context.Context, *TodoAdd) (*Res, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
 }
-func (UnimplementedPingServer) Delete(context.Context, *Tododelete) (*Res, error) {
+func (UnimplementedPingServer) Delete(context.Context, *TodoDelete) (*Res, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedPingServer) mustEmbedUnimplementedPingServer() {}
@@ -113,7 +113,7 @@ func _Ping_Echo_Handler(srv interface{}, ctx context.Context, dec func(interface
 }
 
 func _Ping_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Todoadd)
+	in := new(TodoAdd)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -125,13 +125,13 @@ func _Ping_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{
 		FullMethod: "/ping.Ping/Add",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PingServer).Add(ctx, req.(*Todoadd))
+		return srv.(PingServer).Add(ctx, req.(*TodoAdd))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Ping_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Tododelete)
+	in := new(TodoDelete)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -143,7 +143,7 @@ func _Ping_Delete_Handler(srv interface{}, ctx context.Context, dec func(interfa
 		FullMethod: "/ping.Ping/Delete",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PingServer).Delete(ctx, req.(*Tododelete))
+		return srv.(PingServer).Delete(ctx, req.(*TodoDelete))
 	}
 	return interceptor(ctx, in, info, handler)
 }

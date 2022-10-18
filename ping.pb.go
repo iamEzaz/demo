@@ -25,7 +25,6 @@ type Req struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// string msg = 1;
 	Id   int32  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 }
@@ -76,7 +75,7 @@ func (x *Req) GetName() string {
 	return ""
 }
 
-type Todoadd struct {
+type TodoAdd struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -85,8 +84,8 @@ type Todoadd struct {
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 }
 
-func (x *Todoadd) Reset() {
-	*x = Todoadd{}
+func (x *TodoAdd) Reset() {
+	*x = TodoAdd{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_protos_ping_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -94,13 +93,13 @@ func (x *Todoadd) Reset() {
 	}
 }
 
-func (x *Todoadd) String() string {
+func (x *TodoAdd) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Todoadd) ProtoMessage() {}
+func (*TodoAdd) ProtoMessage() {}
 
-func (x *Todoadd) ProtoReflect() protoreflect.Message {
+func (x *TodoAdd) ProtoReflect() protoreflect.Message {
 	mi := &file_protos_ping_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -112,26 +111,26 @@ func (x *Todoadd) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Todoadd.ProtoReflect.Descriptor instead.
-func (*Todoadd) Descriptor() ([]byte, []int) {
+// Deprecated: Use TodoAdd.ProtoReflect.Descriptor instead.
+func (*TodoAdd) Descriptor() ([]byte, []int) {
 	return file_protos_ping_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *Todoadd) GetId() int32 {
+func (x *TodoAdd) GetId() int32 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *Todoadd) GetName() string {
+func (x *TodoAdd) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-type Tododelete struct {
+type TodoDelete struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -140,8 +139,8 @@ type Tododelete struct {
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 }
 
-func (x *Tododelete) Reset() {
-	*x = Tododelete{}
+func (x *TodoDelete) Reset() {
+	*x = TodoDelete{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_protos_ping_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -149,13 +148,13 @@ func (x *Tododelete) Reset() {
 	}
 }
 
-func (x *Tododelete) String() string {
+func (x *TodoDelete) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Tododelete) ProtoMessage() {}
+func (*TodoDelete) ProtoMessage() {}
 
-func (x *Tododelete) ProtoReflect() protoreflect.Message {
+func (x *TodoDelete) ProtoReflect() protoreflect.Message {
 	mi := &file_protos_ping_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -167,19 +166,19 @@ func (x *Tododelete) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Tododelete.ProtoReflect.Descriptor instead.
-func (*Tododelete) Descriptor() ([]byte, []int) {
+// Deprecated: Use TodoDelete.ProtoReflect.Descriptor instead.
+func (*TodoDelete) Descriptor() ([]byte, []int) {
 	return file_protos_ping_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *Tododelete) GetId() int32 {
+func (x *TodoDelete) GetId() int32 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *Tododelete) GetName() string {
+func (x *TodoDelete) GetName() string {
 	if x != nil {
 		return x.Name
 	}
@@ -191,7 +190,6 @@ type Res struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// string msg = 2;
 	Id   int32  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 }
@@ -249,10 +247,10 @@ var file_protos_ping_proto_rawDesc = []byte{
 	0x6f, 0x74, 0x6f, 0x12, 0x04, 0x70, 0x69, 0x6e, 0x67, 0x22, 0x29, 0x0a, 0x03, 0x52, 0x65, 0x71,
 	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64,
 	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x6e, 0x61, 0x6d, 0x65, 0x22, 0x2d, 0x0a, 0x07, 0x74, 0x6f, 0x64, 0x6f, 0x61, 0x64, 0x64, 0x12,
+	0x6e, 0x61, 0x6d, 0x65, 0x22, 0x2d, 0x0a, 0x07, 0x54, 0x6f, 0x64, 0x6f, 0x41, 0x64, 0x64, 0x12,
 	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12,
 	0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e,
-	0x61, 0x6d, 0x65, 0x22, 0x30, 0x0a, 0x0a, 0x74, 0x6f, 0x64, 0x6f, 0x64, 0x65, 0x6c, 0x65, 0x74,
+	0x61, 0x6d, 0x65, 0x22, 0x30, 0x0a, 0x0a, 0x54, 0x6f, 0x64, 0x6f, 0x44, 0x65, 0x6c, 0x65, 0x74,
 	0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69,
 	0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
 	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x29, 0x0a, 0x03, 0x52, 0x65, 0x73, 0x12, 0x0e, 0x0a, 0x02,
@@ -261,10 +259,10 @@ var file_protos_ping_proto_rawDesc = []byte{
 	0x32, 0x72, 0x0a, 0x04, 0x50, 0x69, 0x6e, 0x67, 0x12, 0x1e, 0x0a, 0x04, 0x45, 0x63, 0x68, 0x6f,
 	0x12, 0x09, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x71, 0x1a, 0x09, 0x2e, 0x70, 0x69,
 	0x6e, 0x67, 0x2e, 0x52, 0x65, 0x73, 0x22, 0x00, 0x12, 0x21, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12,
-	0x0d, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x74, 0x6f, 0x64, 0x6f, 0x61, 0x64, 0x64, 0x1a, 0x09,
+	0x0d, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x54, 0x6f, 0x64, 0x6f, 0x41, 0x64, 0x64, 0x1a, 0x09,
 	0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x73, 0x22, 0x00, 0x12, 0x27, 0x0a, 0x06, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x10, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x74, 0x6f, 0x64,
-	0x6f, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x1a, 0x09, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x52,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x10, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x54, 0x6f, 0x64,
+	0x6f, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x1a, 0x09, 0x2e, 0x70, 0x69, 0x6e, 0x67, 0x2e, 0x52,
 	0x65, 0x73, 0x22, 0x00, 0x42, 0x19, 0x5a, 0x17, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
 	0x6f, 0x6d, 0x2f, 0x69, 0x61, 0x6d, 0x45, 0x7a, 0x61, 0x7a, 0x2f, 0x64, 0x65, 0x6d, 0x6f, 0x62,
 	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
@@ -285,14 +283,14 @@ func file_protos_ping_proto_rawDescGZIP() []byte {
 var file_protos_ping_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_protos_ping_proto_goTypes = []interface{}{
 	(*Req)(nil),        // 0: ping.Req
-	(*Todoadd)(nil),    // 1: ping.todoadd
-	(*Tododelete)(nil), // 2: ping.tododelete
+	(*TodoAdd)(nil),    // 1: ping.TodoAdd
+	(*TodoDelete)(nil), // 2: ping.TodoDelete
 	(*Res)(nil),        // 3: ping.Res
 }
 var file_protos_ping_proto_depIdxs = []int32{
 	0, // 0: ping.Ping.Echo:input_type -> ping.Req
-	1, // 1: ping.Ping.Add:input_type -> ping.todoadd
-	2, // 2: ping.Ping.Delete:input_type -> ping.tododelete
+	1, // 1: ping.Ping.Add:input_type -> ping.TodoAdd
+	2, // 2: ping.Ping.Delete:input_type -> ping.TodoDelete
 	3, // 3: ping.Ping.Echo:output_type -> ping.Res
 	3, // 4: ping.Ping.Add:output_type -> ping.Res
 	3, // 5: ping.Ping.Delete:output_type -> ping.Res
@@ -322,7 +320,7 @@ func file_protos_ping_proto_init() {
 			}
 		}
 		file_protos_ping_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Todoadd); i {
+			switch v := v.(*TodoAdd); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -334,7 +332,7 @@ func file_protos_ping_proto_init() {
 			}
 		}
 		file_protos_ping_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Tododelete); i {
+			switch v := v.(*TodoDelete); i {
 			case 0:
 				return &v.state
 			case 1:
