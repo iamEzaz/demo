@@ -2,20 +2,32 @@ syntax = "proto3";
 
 package ping;
 
-option go_package = "github.com/iamEzaz/demo/protos";
+option go_package = "github.com/iamEzaz/demo";
 
 message Req{
-    string msg = 1;
+    // string msg = 1;
+    int32 id = 1;
+    string name = 2;
+}
+
+message todoadd{
+    int32 id = 1;
+    string name = 2;
+}
+
+message tododelete{
+    int32 id = 1;
+    string name = 2;
 }
 
 message Res{
-    string msg = 2;
+    // string msg = 2;
+    int32 id = 1;
+    string name = 2;
 }
 
 service Ping{
     rpc Echo(Req) returns (Res) {}
-    rpc List(Req) returns (Res){}
-    rpc Add(Req) returns (Res){}
-    rpc Delete(Req) returns (Res){}
-    rpc Update(Req) returns (Res){}
+    rpc Add(todoadd) returns (Res){}
+    rpc Delete(tododelete) returns (Res){}
 }
